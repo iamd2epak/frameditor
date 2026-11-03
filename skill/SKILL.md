@@ -5,6 +5,8 @@ description: Make animated faceless reels/shorts as a .frame project for the Fra
 
 # Frameditor
 
+Skill version: 2
+
 The engine is the public repo **github.com/iamd2epak/frameditor**. Looks come from **theme packs** (one zip per theme).
 The output is ALWAYS one `.frame` file that the user opens in the Frameditor app.
 
@@ -20,6 +22,20 @@ The output is ALWAYS one `.frame` file that the user opens in the Frameditor app
    anything to any repo.
 5. Read only what the task needs: this file, `docs/SPEC.md`, and `themes/<id>/RULES.md` for the chosen theme.
    Don't read other themes, `core/` code or the whole repo.
+
+## Skill version (check once, after setup)
+- The newest skill is always `skill/SKILL.md` in the repo. After cloning, compare its `Skill version:` with this file's.
+- Repo newer (or this skill was not installed and you are reading the repo copy): follow the repo copy for this task.
+  At the end, tell the user in one line that a newer skill is out. Make
+  `mkdir -p out/s/frameditor && cp skill/SKILL.md out/s/frameditor/ && (cd out/s && zip -qr ../frameditor-skill.zip frameditor)`
+  and send `out/frameditor-skill.zip` so the user can tap Add / Update skill. Never block the reel on this.
+
+## Requests from the Frameditor app
+The app's "Make with Claude" button sends the request block below, filled in, plus `Script:` (optional), the user's
+audio (`my voice`) and the theme pack zip for any theme except `starter`. With files attached, the request comes as
+`frameditor-request.txt` (the message may be just "make it"): read that file. Treat it as complete: install the attached
+pack (`frame.py install <zip> --force`), then make the reel. Ask nothing unless something is broken.
+- `Script:` given with AI voice: use those words as the `say` lines (light fixes only), fitted to the length.
 
 ## Request format (always)
 Users don't have to remember anything: Claude shows this short block.
