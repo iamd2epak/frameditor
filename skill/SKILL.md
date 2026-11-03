@@ -32,8 +32,8 @@ The output is ALWAYS one `.frame` file that the user opens in the Frameditor app
 
 ## Requests from the Frameditor app
 The app's "Make with Claude" button sends the request block below, filled in, plus `Script:` (optional), the user's
-audio (`my voice`) and the theme pack zip for any theme except `starter`. With files attached, the request comes as
-`frameditor-request.txt` (the message may be just "make it"): read that file. Treat it as complete: install the attached
+audio (`my voice`) and the theme pack zip for any theme except `starter`. The request always comes as the attached
+`frameditor-request.txt` (the message may be empty or "Do this…"): read that file. Treat it as complete: install the attached
 pack (`frame.py install <zip> --force`), then make the reel. Ask nothing unless something is broken.
 - `Script:` given with AI voice: use those words as the `say` lines (light fixes only), fitted to the length.
 
