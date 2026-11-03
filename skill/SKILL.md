@@ -21,15 +21,40 @@ The output is ALWAYS one `.frame` file that the user opens in the Frameditor app
 5. Read only what the task needs: this file, `docs/SPEC.md`, and `themes/<id>/RULES.md` for the chosen theme.
    Don't read other themes, `core/` code or the whole repo.
 
+## Request format (always)
+Users don't have to remember anything: Claude shows this short block.
+- Required: **Theme** + **Topic**. Missing one, or a free-form request? Do not start.
+  - Reply with the installed themes, one line each, from `python frame.py themes` (after setup). Without setup, list `starter` plus any pack the user attached.
+  - Then give the block below in a code block to copy, fill and send back.
+- Both present: start at once, no more questions.
+```
+Theme: starter
+Topic: what the reel is about
+Voice: my voice (attach the audio) | AI voice
+Length: 60s
+Extra: anything else (optional)
+```
+Defaults (never ask for them):
+- **Voice:** an attached audio file always means `my voice`. Otherwise: AI voice (built-in English TTS).
+- **Language:**
+  - With `my voice`: the language of the audio (Hindi audio = Roman Hinglish `say`).
+  - With AI voice: English, always.
+- **Length:**
+  - With `my voice`: the audio's length.
+  - With AI voice: `Length:`, or 60s. Claude writes the script for that length.
+- **Extra:** free text (script lines, CTA keyword, images to show, tone...). Follow it.
+- Change an existing reel: `Change: <reel title> - <what to change>`; edit the same spec and make it again.
+- New theme: `New theme: <name> / Kind: character | faceless / Look: colours, fonts, mood / Character: <name> + PNG attached`.
+
 ## Make a reel
 1. Setup, once per session:
    `git clone --depth 1 https://github.com/iamd2epak/frameditor && cd frameditor && ./setup.sh`
 2. Theme:
    - Run `python frame.py themes`.
    - To install a pack the user sent: `python frame.py install <path-or-url>`. Install errors mean the pack is broken: show the message and stop.
-3. Inputs: the theme, the user's voice file (`voice: {mode: file}`, copy it to `reels/`) or a script for the built-in
-   English TTS. Missing topic or script? Write a tight script and show it before building. A Hindi voice needs a Roman
-   Hinglish `say`.
+3. Inputs come from the request format + defaults.
+   - `my voice`: `voice: {mode: file}`. Copy the audio to `reels/`; its words are the `say` lines.
+   - AI voice: `voice: {mode: kokoro}`, English. Write a tight script for the length and show it in the reply with the file.
 4. Read `docs/SPEC.md` + `themes/<id>/RULES.md`, then write `reels/<slug>.yaml` (slug: short, kebab-case).
    - Base it on the theme's `examples/*.yaml`.
    - Changing a reel the user already has: edit the SAME slug. The app files it as the next version of that project.

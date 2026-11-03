@@ -32,5 +32,8 @@ lines:                                     # required: one entry per spoken sent
 - Only 1-2 `emph` words per line; everything else plain.
 - No social handles or IDs on screen.
 - Long dead pauses (> 0.8 s) in the user's audio: trim them (ffmpeg) before making the reel.
+- App/brand logos (Canva, ChatGPT, YouTube...): just name the brand where the theme takes a logo (e.g. `logo: canva`).
+  The theme pack's logos are used first; any other brand downloads automatically once (simple-icons) into the sandbox
+  cache. A brand that isn't available becomes a lettered tile, or ask the user for a PNG.
 - Images: only when they clearly help. Prefer files the user sends; a missing image is listed as MISSING IMAGES:
   ask the user for it.
