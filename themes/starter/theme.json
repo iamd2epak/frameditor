@@ -1,0 +1,27 @@
+{
+  "id": "starter",
+  "name": "Starter",
+  "version": 1,
+  "format": 1,
+  "kind": "faceless",
+  "license": "free",
+  "author": "Frameditor",
+  "description": "Minimal free theme and the template for building your own: soft gradient page, white text cards and images that pop in on their cue words, kinetic captions at the bottom. No character.",
+  "character": null,
+  "music": "bright",
+  "sound": "soft",
+  "fonts": ["Manrope-ExtraBold.ttf", "Manrope-Bold.ttf"],
+  "style": {
+    "background": {"type": "gradient", "top": [250, 248, 245], "bottom": [236, 240, 248]},
+    "caption": {
+      "type": "kinetic",
+      "y": 1478, "sizes": [68, 62, 56], "row": 84, "max_width": 880,
+      "font": "Manrope-ExtraBold.ttf", "emph_font": "Manrope-ExtraBold.ttf", "emph_scale": 1.0,
+      "colors": {"ink": [24, 24, 30], "emph": [232, 88, 60], "emph_blue": [40, 96, 200], "highlight": [255, 226, 160]}
+    },
+    "palette": {"ink": [24, 24, 30], "accent": [232, 88, 60], "blue": [40, 96, 200], "red": [226, 44, 44], "gold": [246, 180, 60],
+                "line": [228, 230, 236], "card": [255, 255, 255]},
+    "text_font": "Manrope-ExtraBold.ttf",
+    "label_font": "Manrope-Bold.ttf"
+  }
+}

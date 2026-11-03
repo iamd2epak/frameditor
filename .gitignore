@@ -1,0 +1,13 @@
+# per-reel work stays on your machine
+reels/
+out/
+# theme packs are installed locally (python frame.py install <pack>); they are not part of this repo
+themes/*
+!themes/README.md
+!themes/starter/
+# downloads + caches
+models/
+.cache/
+__pycache__/
+*.pyc
+.DS_Store

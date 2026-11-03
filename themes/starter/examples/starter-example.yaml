@@ -1,0 +1,17 @@
+# Starter theme example: python frame.py make themes/starter/examples/starter-example.yaml
+title: Three habits of fast learners
+theme: starter
+voice: {mode: kokoro, name: am_michael, speed: 1.05}
+lines:
+  - say: "Fast learners all share three habits."
+    expr: neutral
+    emph: [three]
+    boom: three
+    scene: {type: cards, title: "3 habits", items: [{text: "Fast learners", cue: 0.2}]}
+  - say: "They teach what they learn, they test themselves, and they sleep on it."
+    emph: [teach, test]
+    emph_blue: [sleep]
+    scene: {type: cards, items: [{text: "Teach it", cue: teach}, {text: "Test yourself", cue: test}, {text: "Sleep on it", cue: sleep}]}
+  - say: "Pick one and start today."
+    emph: [today]
+    scene: {type: cards, items: [{text: "Start today", cue: 0.2}]}
